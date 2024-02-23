@@ -1,12 +1,13 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include <vector>
 
 #include "radix_sort.hpp"
 
 TEST(ArraysEqual, AnyElementsCount) {
-	int actual[] = {1, 8, 2, 5, 3, 11};
+	vector<int> actual = {1, 8, 2, 5, 3, 11};
 	RadixSort::radixsort(actual);
-	int expected[] = {1, 4, 3, 5, 8, 11};
+	vector<int> expected = {1, 4, 3, 5, 8, 11};
 	
 	ASSERT_EQ(expected.size(), actual.size())
 		<< "Разные размеры ожидаемого и отсортированного массивов";

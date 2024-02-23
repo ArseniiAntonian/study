@@ -1,2 +1,8 @@
 #pragma once
-void radixsort(int arr[], int n);
+#include <vector>
+
+namespace RadixSort{
+    using namespace std;
+    void radixsort(vector<int> arr);
+}
+

@@ -1,6 +1,4 @@
 # ninja log v5
-3	400	7303298096502740	CMakeFiles/radix_sort.dir/main.cpp.obj	63f7345068f18ac2
-400	486	7303298097319560	radix_sort.exe	2ffc45dfe3459c8a
-7	79	7303302728183680	CMakeFiles/radix_sort.dir/radix_sort.cpp.obj	a709b68f23e3c9ab
 3	367	7303302731075974	CMakeFiles/radix_sort.dir/main.cpp.obj	63f7345068f18ac2
 367	454	7303302731900138	radix_sort.exe	595b77fd77bbaeda
+7	79	7303302728183680	CMakeFiles/radix_sort.dir/radix_sort.cpp.obj	a709b68f23e3c9ab

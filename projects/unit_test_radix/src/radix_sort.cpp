@@ -1,6 +1,10 @@
 #include "radix_sort.hpp"
+#include <vector>
+using namespace std;
 
-int getMax(int arr[], int n) {
+int getMax(vector<int> arr) {
+
+    int n = arr.size();
     int mx = arr[0];
     for (int i = 1; i < n; i++)
         if (arr[i] > mx)
@@ -8,8 +12,9 @@ int getMax(int arr[], int n) {
     return mx;
 }
 
-void countSort(int arr[], int n, int exp) {
+void countSort(vector<int> arr, int exp) {
 
+    int n = arr.size();
     int output[n];
     int i, count[10] = { 0 };
 
@@ -28,10 +33,10 @@ void countSort(int arr[], int n, int exp) {
         arr[i] = output[i];
 }
 
-void radixsort(int arr[], int n) {
-
-    int m = getMax(arr, n);
+void RadixSort::radixsort(vector<int> arr) {
+    int n = arr.size();
+    int m = getMax(arr);
 
     for (int exp = 1; m / exp > 0; exp *= 10)
-        countSort(arr, n, exp);
+        countSort(arr, exp);
 }
