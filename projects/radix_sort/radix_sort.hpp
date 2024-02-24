@@ -2,8 +2,6 @@
 #include <vector>
 
 namespace RadixSort{
-    using namespace std;
-
-    void radixsort(vector<int> arr);
+    void sort(std::vector<int> &arr);
 }
 

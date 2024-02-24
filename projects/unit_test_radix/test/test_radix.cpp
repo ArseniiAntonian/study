@@ -5,9 +5,9 @@
 #include "radix_sort.hpp"
 
 TEST(ArraysEqual, AnyElementsCount) {
-	vector<int> actual = {1, 8, 2, 5, 3, 11};
-	RadixSort::radixsort(actual);
-	vector<int> expected = {1, 4, 3, 5, 8, 11};
+	std::vector<int> actual = {1, 8, 2, 5, 3, 11};
+	RadixSort::sort(actual);
+	std::vector<int> expected = {1, 4, 3, 5, 8, 11};
 	
 	ASSERT_EQ(expected.size(), actual.size())
 		<< "Разные размеры ожидаемого и отсортированного массивов";
