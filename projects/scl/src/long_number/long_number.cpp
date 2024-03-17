@@ -1,6 +1,4 @@
 #include "long_number.hpp."
-#include "long_number.hpp"
-
 #include <iostream>
 #include <cmath>
 
@@ -104,10 +102,11 @@ namespace AAntonian {
 
         x.numbers = nullptr;
         x.length = 0;
+        //x.sign = POSITIVE;
         return *this;
     }
 
-    bool LongNumber::operator == (const LongNumber& x) {
+    bool LongNumber::operator == (const LongNumber& x) const {
         bool flag = false;
         if (length != x.length){
             return flag;
@@ -124,7 +123,7 @@ namespace AAntonian {
         }
     }
 
-    bool LongNumber::operator > (const LongNumber& x) {
+    bool LongNumber::operator > (const LongNumber& x) const{
         if (sign != x.sign) {
             return sign == POSITIVE;
         }
@@ -139,7 +138,7 @@ namespace AAntonian {
         }
     }
 
-    bool LongNumber::operator < (const LongNumber& x) {
+    bool LongNumber::operator < (const LongNumber& x) const {
         if (sign != x.sign) {
             return sign == NEGATIVE;
         }
@@ -155,13 +154,12 @@ namespace AAntonian {
         }
     }
 
-    LongNumber LongNumber::operator + (const LongNumber& x) {
+    LongNumber LongNumber::operator + (const LongNumber& x) const{
         LongNumber result;
-
-        result.numbers = new int[result.length];
 
         if(sign == x.sign){
             result.length = fmax(length, x.length) + 1;
+            result.numbers = new int[result.length];
             result.sign = sign;
             bool flag = false;
             if (*this > x){
@@ -211,6 +209,7 @@ namespace AAntonian {
         }
         else{
             result.length = fmax(length, x.length);
+            result.numbers = new int[result.length];
             bool flag = true;
             if(abs(*this) < abs(x)){
                 flag = false;
@@ -260,146 +259,7 @@ namespace AAntonian {
         return result;
     }
 
-    /*LongNumber LongNumber::operator + (const LongNumber& x) {
-        LongNumber result;
-        LongNumber x1 = x;
-        //result.sign = POSITIVE;
-        result.length = fmax(length, x.length) + 1;
-        result.numbers = new int[result.length];
-        if(sign != x.sign){
-            if (sign == POSITIVE) {
-                LongNumber res = *this - abs(x1);
-                return res;
-            }
-            else {
-                LongNumber res = x1 - abs(*this);
-                return res;
-            }
-        } else {
-            if(sign == NEGATIVE){
-                result.sign = NEGATIVE;
-            } else{
-                result.sign = POSITIVE;
-            }
-        }
-        bool flag = false;
-        if (abs(*this) > abs(x))
-            flag = true;
-        for (int i = 0; i < result.length; i++)
-            result.numbers[i] = 0;
-        int i = flag ? length - 1 : x.length - 1;
-        int j = flag ? x.length -1 : length - 1;
-        int k = result.length - 1;
-        while (i >= 0 && j >= 0){
-            result.numbers[k] += numbers[flag ? i : j] + x.numbers[flag ? j : i];
-            if (result.numbers[k] >= 10){
-                result.numbers[k - 1] += 1;
-                result.numbers[k] = result.numbers[k] - 10;
-            }
-            i--;
-            j--;
-            k--;
-        }
-        while (i >= 0 && k >= 0){
-            result.numbers[k] += flag ? numbers[i] : x.numbers[i];
-            if (result.numbers[k] >= 10){
-                result.numbers[k - 1] += 1;
-                result.numbers[k] = result.numbers[k] - 10;
-            }
-            i--;
-            j--;
-            k--;
-        }
-        if (result.numbers[0] == 0){
-            int *copy = new int [result.length - 1];
-            for (int i = 0; i < result.length - 1; i++){
-                copy[i] = result.numbers[1 + i];
-            }
-            delete[] result.numbers;
-            result.numbers = new int[result.length - 1];
-            for (int i = 0; i < result.length - 1; i++){
-                result.numbers[i] = copy[i];
-            }
-            result.length -= 1;
-            delete [] copy;
-        }
-        return result;
-    }*/
-
-
-    /*LongNumber LongNumber::operator - (const LongNumber& x) {
-        LongNumber result;
-        int size = fmax(length, x.length);
-        int *buffer = new int[size];
-        int index_max = fmax(length - 1, x.length - 1);
-        int index_min = fmin(length - 1, x.length - 1);
-//        if (sign != x.sign){
-//            if (sign == NEGATIVE){
-//                result.sign = NEGATIVE;
-//                result = result + *this;
-//                return result;
-//            } else{
-//                result.sign = POSITIVE;
-//                result = result + *this;
-//                return result;
-//            }
-//        } else{
-//            if (abs(*this) > abs(x)){
-//                result.sign = NEGATIVE;
-//            } else{
-//                result.sign = POSITIVE;
-//            }
-//        }
-        if (*this > x){
-            result.sign = POSITIVE;
-            for (int i = size - 1; i >= 0; i--){
-                if(numbers[i] - x.numbers[i] < 0){
-                    buffer[i - 1] = buffer[i - 1] - 1;
-                    buffer[i] +=10;
-                }
-                buffer[i] = numbers[i] - (index_min >= 0 ? x.numbers[index_min] : 0);
-                index_min--;
-            }
-        } else{
-            result.sign = NEGATIVE;
-            int j = length - 1;
-            int k = x.length - 1;
-            for (int i = size - 1; i >= 0; i--){
-                if(numbers[i] - x.numbers[i] < 0){
-                    buffer[i - 1] -= 1;
-                    buffer[i] +=10;
-                }
-                buffer[i] = x.numbers[i] - (index_min >= 0 ? numbers[index_min] : 0);
-                index_min--;
-            }
-        }
-
-//        for(int i = 0; i < size; i++){
-//            if (buffer[i + 1] < 0){
-//                buffer[i] -= 1;
-//                buffer[i + 1] += 10;
-//            }
-//        }
-
-        if (buffer[0] == 0 && size != 1){
-            result.numbers = new int[size - 1];
-            result.length = size - 1;
-            int j = 0;
-            for(int i = 1; i < size; i++){
-                result.numbers[j] = buffer[i];
-                j++;
-            }
-        }else{
-            result.numbers = new int[size];
-            result.length = size;
-            for(int i = 0; i < size; i++){
-                result.numbers[i] = buffer[i];
-            }
-        }
-        return result;
-    }*/
-
-    LongNumber LongNumber::operator - (const LongNumber& x) {
+    LongNumber LongNumber::operator - (const LongNumber& x) const{
         LongNumber result;
         int size = fmax(length, x.length);
         int *buffer = new int[size];
@@ -455,7 +315,7 @@ namespace AAntonian {
         return result;
     }
 
-    LongNumber LongNumber::operator * (const LongNumber& x) {
+    LongNumber LongNumber::operator * (const LongNumber& x) const{
         LongNumber result;
         bool flag = abs(*this) > abs(x);
         int maxLength = fmax(length, x.length);
@@ -500,8 +360,8 @@ namespace AAntonian {
         return result;
     }
 
-    LongNumber LongNumber::operator / (const LongNumber& x) {
-        LongNumber result = "0";
+    LongNumber LongNumber::operator / (const LongNumber& x) const{
+        LongNumber result = "-1";
         LongNumber k = *this;
         LongNumber adin = "1";
         LongNumber abs_x = abs(x);
@@ -509,7 +369,9 @@ namespace AAntonian {
         while (abs_k>"0") {
             abs_k = abs_k - abs_x;
             result = result + adin;
-
+        }
+        if (abs_k + abs_x == abs_x){
+            result = result + "1";
         }
         result.sign = sign == x.sign ? POSITIVE : NEGATIVE;
         return result;
@@ -517,9 +379,10 @@ namespace AAntonian {
 
 
 
-    LongNumber LongNumber::operator % (const LongNumber& x) {
-        // TODO
+    LongNumber LongNumber::operator % (const LongNumber& x) const{
         LongNumber result;
+
+        result = *this - (*this/x)*x;
         return result;
     }
 

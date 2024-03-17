@@ -19,11 +19,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c4b8c5c-cb43-4f7c-980e-4be286f9af8d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../build.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../build.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../radix_sort/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../radix_sort/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../unit_test_radix/test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../unit_test_radix/test/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/long_number.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/long_number.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/long_number.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/long_number.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/long_number/test_long_number.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/long_number/test_long_number.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +62,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,7 +77,7 @@
       <workItem from="1710076441986" duration="15164000" />
       <workItem from="1710338901403" duration="1214000" />
       <workItem from="1710361987535" duration="21000" />
-      <workItem from="1710683514628" duration="1000" />
+      <workItem from="1710683514628" duration="2212000" />
     </task>
     <servers />
   </component>
