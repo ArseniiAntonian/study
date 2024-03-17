@@ -14,5 +14,6 @@ add_subdirectory(obuchaika)
 add_subdirectory(radix_sort)
 add_subdirectory(unit_test_example)
 add_subdirectory(unit_test_radix)
+add_subdirectory(scl)
 
 set(CMAKE_SUPPRESS_REGENERATION true)
