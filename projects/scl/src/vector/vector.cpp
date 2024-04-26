@@ -1,6 +1,6 @@
 #include "vector.hpp"
 
-using IBusko::Vector;
+using AAntonian::Vector;
 
 template<typename T>
 Vector<T>::Vector() noexcept {
@@ -78,7 +78,7 @@ bool Vector<T>::has_item(const T& value)const noexcept{
 }
 
 template<typename T>
-bool Vector<T>::remove_first(const T& value){
+bool Vector<T>::remove_first(const T& value) noexcept {
     int ind  = -1;
     for (int i = 0; i< _size; i++){
         if (arr[i] == value){
