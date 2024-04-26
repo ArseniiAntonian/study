@@ -1,3 +1,10 @@
-add_library(scl_lib "")
+add_library(${SCL_LIB} "")
 
+add_subdirectory(deque)
+add_subdirectory(list)
+add_subdirectory(logger)
 add_subdirectory(long_number)
+add_subdirectory(stack)
+add_subdirectory(static_array)
+add_subdirectory(text)
+add_subdirectory(vector)
